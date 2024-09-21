@@ -1,41 +1,68 @@
-import React from 'react'
-import { useState} from 'react'
-import {createContext} from 'react'
-import { useEffect } from 'react'
-import axios from 'axios'
+import React, { useState, useEffect, createContext } from 'react';
+import axios from 'axios';
+
 const MyContext = createContext();
-const MyProvider=({children})=>{
-  const n = 'hello world'
- const [product,setProduct]=useState([])
- const [erorr,setErorr]=useState(null)
- const [loading,setLoading]=useState(null)
- useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const response = await axios.get('https://fakestoreapi.com/products'
-        
-      )        
 
-      console.log(response.data)
-     
-       setProduct(response.data)
-      
+const MyProvider = ({ children }) => {
+  const [cart, setCart] = useState([]); 
+  const [products, setProducts] = useState([]); 
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const responseOne = await axios.get('https://fakestoreapi.com/products');
+
+        setProducts(responseOne.data);
   
-      
+        setLoading(false);
+      } catch (err) {
+        setError(err.message || 'An error occurred while fetching products.');
+        setLoading(false);
+      }
+    };
 
-      setLoading(false);
-    } catch (err) {
-      setErorr(err.message || 'An error occurred while fetching products.');
-      setLoading(false);
-    }
-  };
-
-  fetchData();
-}, []);
-return(
-    <MyContext.Provider value={{n,product,erorr,loading}}>
+    fetchData();
+  }, []);
+  
+    const addToCart = (item) => {
+      const isItemInCart = cart.find((cartItem) => cartItem.id === item.id); 
+    
+      if (isItemInCart) {
+      setCart(
+          cart.map((cartItem) => 
+          cartItem.id === item.id
+              ? { ...cartItem, quantity: cartItem.quantity + 1 }
+              : cartItem
+          )
+      );
+      } else {
+      setCart([...cart, { ...item, quantity: 1 }]); 
+      }
+    };
+    const removeFromCart = (item) => {
+      const isItemInCart = cart.find((cartItem) => cartItem.id === item.id);
+    
+      if (isItemInCart.quantity === 1) {
+        setCart(cartItems.filter((cartItem) => cartItem.id !== item.id)); 
+      } else {
+        setCart(
+          cart.map((cartItem) =>
+            cartItem.id === item.id
+              ? { ...cartItem, quantity: cartItem.quantity - 1 } 
+              : cartItem
+          )
+        );
+      }
+    };
+    
+    
+  return (
+    <MyContext.Provider value={{ cart, addToCart, removeFromCart, products, error, loading }}>
       {children}
     </MyContext.Provider>
-)
-}
-export{MyContext,MyProvider}
+  );
+};
+
+export { MyContext, MyProvider };
