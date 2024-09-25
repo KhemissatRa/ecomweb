@@ -8,6 +8,7 @@ const MyProvider = ({ children }) => {
   const [products, setProducts] = useState([]); 
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [find,setFind]=useState("")
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,7 +60,7 @@ const MyProvider = ({ children }) => {
     
     
   return (
-    <MyContext.Provider value={{ cart, addToCart, removeFromCart, products, error, loading }}>
+    <MyContext.Provider value={{ find,setFind,cart, addToCart, removeFromCart, products, error, loading,setProducts }}>
       {children}
     </MyContext.Provider>
   );

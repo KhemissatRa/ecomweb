@@ -3,11 +3,10 @@ import { MyContext } from './context';
 import { Link } from 'react-router-dom';
 
 export default function ProductList() {
-    const { products,addCard } = useContext(MyContext);
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
+    const{products,find}=useContext(MyContext)
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -21,15 +20,18 @@ export default function ProductList() {
 
         fetchData();
     }, []);
- 
+
+
+
+    
     const categories = ['All', ...new Set(products.map(product => product.category))];
     const filteredProducts = selectedCategory === 'All'
         ? products
         : products.filter(product => product.category === selectedCategory);
 
+    console.log(products)
     if (loading) return <div className="text-center py-10 text-gray-700">Loading...</div>;
     if (error) return <div className="text-center py-10 text-red-600">{error}</div>;
-
     return (
         <div className="container mx-auto px-4 py-10">
             <div className='flex justify-center mb-8'>
