@@ -31,7 +31,7 @@ export default function ProductDetails() {
       <Nav/>
       <Hero/>
 
-      <div className="min-h-screen flex w-screen items-center justify-center bg-pink-50">
+      <div className="min-h-screen flex  flex-col w-screen items-center justify-center bg-pink-50">
         <div className="w-1/2 p-6 bg-white rounded-lg shadow-md">
           <h1 className="text-3xl font-bold text-pink-700 mb-4">{details.title}</h1>
           {details.image && (
@@ -41,16 +41,18 @@ export default function ProductDetails() {
               className="  h-auto rounded-xl mb-4"
             />
           )}
+         
+          
+          <p className="mb-2">{details.description}</p>
+          <p className="text-lg font-semibold text-pink-600 mb-2">Price: ${details.price}</p>
+          <p className="text-gray-600 italic">Category: {details.category}</p>
+      
           <button 
-            className='bg-gradient-to-r from-teal-500 to-teal-700 w-38 my-6 mx-56 text-white py-4 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300' 
+            className='bg-yellow-400 w-38 my-2  mx-auto text-gray-800 py-4 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300' 
             onClick={() => addToCart(details)}
           >
             Add to Cart
           </button>
-          {console.log(cart)}
-          <p className="mb-2">{details.description}</p>
-          <p className="text-lg font-semibold text-pink-600 mb-2">Price: ${details.price}</p>
-          <p className="text-gray-600 italic">Category: {details.category}</p>
         </div>
       </div>
       <Footer/>  
