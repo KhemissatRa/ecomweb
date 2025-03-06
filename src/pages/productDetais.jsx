@@ -38,7 +38,7 @@ export default function ProductDetails() {
             <img
               src={details.image}
               alt={details.title}
-              className="w-full h-auto rounded-xl mb-4"
+              className="  h-auto rounded-xl mb-4"
             />
           )}
           <button 
