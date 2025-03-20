@@ -1,6 +1,7 @@
 {
-  "homepage": "https://khemissatRa.github.io/ecomweb/",
+  
   "name": "ecommerceapp",
+  "homepage": "https://khemissatRa.github.io/ecomweb/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
