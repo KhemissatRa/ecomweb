@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { MyContext } from './context';
 import { Link } from 'react-router-dom';
 
 export default function ShoppingCart() {
-  const { cart, addToCart, removeFromCart, setCart } = useContext(MyContext);
+  const { cart, addToCart, removeFromCart, } = useContext(MyContext);
 
   const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 

@@ -1,5 +1,4 @@
 import Home from './pages/home'
-import React from 'react'
 import ProductDetails from './pages/productDetais'
 import ShopingCard from './commponents/shopingCard' 
 import Checkout from './commponents/checkout'

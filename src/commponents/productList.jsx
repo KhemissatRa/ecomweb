@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import  { useContext, useState, useEffect } from 'react';
 import { MyContext } from './context';
 import { Link } from 'react-router-dom';
 
@@ -6,7 +6,7 @@ export default function ProductList() {
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const{products,find}=useContext(MyContext)
+    const{products}=useContext(MyContext)
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -81,7 +81,7 @@ export default function ProductList() {
                                 <span className='text-lg  text-blue-800 font-bold text-teal-600'>{item.price}$</span>
                             </div>
                         </div>
-                        <Link to={`/Details/${item.id}`} className='  bg-gray-800 text-center w-28 text-white p p-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-300'>
+                        <Link to={`Details/${item.id}`} className='  bg-gray-800 text-center w-28 text-white p p-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-300'>
                             Buy Now!
                         </Link>
                     </div>
