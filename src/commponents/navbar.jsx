@@ -21,7 +21,7 @@ export default function Nav() {
         <div className="flex justify-between items-center space-x-8">
           <h1 className='text-3xl font-extrabold tracking-wide'>Shop<span className='text-yellow-400'>Now</span></h1>
           <Link to="/" className='hover:text-teal-300 transition duration-300 text-lg font-semibold'>Home</Link>
-          <Link to="card" className='hover:text-teal-300 transition duration-300 text-lg font-semibold'>
+          <Link to="/card" className='hover:text-teal-300 transition duration-300 text-lg font-semibold'>
             <FontAwesomeIcon icon={faShoppingCart} className="mr-2 text-teal-600" />
           </Link>
         </div>
