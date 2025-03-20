@@ -53,7 +53,7 @@ export default function ProductList() {
                     <option value="All">All</option>
                     <option value="men's clothing">mens clothing</option>
                     <option value="jewelery">Jewelery</option>
-                    <option value="women's clothing">Women's clothing</option>
+                    <option value="women's clothing">Women'sclothing</option>
                     <option value="electronics">electronics</option>
 
 

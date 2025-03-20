@@ -7,7 +7,7 @@ import { BrowserRouter as Router , Route,Routes } from 'react-router-dom'
 export default function App() {
 
   return (
-  <Router>
+  <Router basename='/ecommerce'>
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/Details/:id" element={<ProductDetails/>}/>
