@@ -32,7 +32,8 @@ export default function ProductDetails() {
       <Hero/>
 
       <div className="min-h-screen flex  flex-col w-screen items-center justify-center bg-pink-50">
-        <div className="w-1/2 p-6 bg-white rounded-lg shadow-md">
+        <div className="w-full flex flex-col justify-center items-center md:w-1/2  p-6 bg-white rounded-lg shadow-md">
+          <div>
           <h1 className="text-3xl font-bold text-pink-700 mb-4">{details.title}</h1>
           {details.image && (
             <img
@@ -41,14 +42,14 @@ export default function ProductDetails() {
               className="  h-auto rounded-xl mb-4"
             />
           )}
-         
+         </div>
           
           <p className="mb-2">{details.description}</p>
           <p className="text-lg font-semibold text-pink-600 mb-2">Price: ${details.price}</p>
           <p className="text-gray-600 italic">Category: {details.category}</p>
       
           <button 
-            className='bg-yellow-400 w-38 my-2  mx-auto text-gray-800 py-4 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300' 
+            className='bg-yellow-400 w-38 my-2  mx-auto text-gray-800 py-4 px-4 rounded-lg shadow-md hover:shadow-lg focus:bg-teal-600 transition-all duration-300' 
             onClick={() => addToCart(details)}
           >
             Add to Cart
