@@ -6,7 +6,7 @@ export default function Hero() {
       <div className='flex flex-col md:flex-row items-center justify-between w-full max-w-6xl'>
         <img 
           className='w-1/2 rounded-full  object-cover'
-          src='src/assets/6737249.jpg' 
+          src='../assets/6737249.jpg' 
           alt='Promotional'
         />
         <div className='md:ml-8  text-center md:text-left'>
