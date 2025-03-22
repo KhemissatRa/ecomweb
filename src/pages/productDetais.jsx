@@ -88,10 +88,10 @@ const filtered = details
     {filtered.map((item) => (
       <div
         key={item.id}
-        className="relative bg-white border rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 p-4 flex flex-col items-center"
+       className='flex border-t-gray-600 p-4 border justify-center mx-auto items-center flex-col w-full'
       >
         <img
-          className="w-48 h-48 object-cover rounded-lg transition-transform duration-300 transform hover:scale-105"
+          className="w-48 h-48 object-cover rounded-lg "
           src={item.image}
           alt={item.title}
         />
