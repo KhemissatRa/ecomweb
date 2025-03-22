@@ -6,8 +6,8 @@ import Nav from '../commponents/navbar';
 import Hero from './hero';
 
 export default function ProductDetails() {
-  
-  const { products, addToCart,cart } = useContext(MyContext);
+
+  const { products, addToCart,Increment,Dicrement,count } = useContext(MyContext);
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [details, setDetails] = useState(null);
@@ -31,10 +31,10 @@ export default function ProductDetails() {
       <Nav/>
       <Hero/>
 
-      <div className="min-h-screen flex  flex-col w-screen items-center justify-center bg-pink-50">
+      <div className="min-h-screen flex p-4 flex-col w-screen items-center justify-center bg-[#F5F5F5]">
         <div className="w-full flex flex-col justify-center items-center md:w-1/2  p-6 bg-white rounded-lg shadow-md">
           <div>
-          <h1 className="text-3xl font-bold text-pink-700 mb-4">{details.title}</h1>
+          <h1 className="text-3xl font-bold text-center  text-[#1F2937] mb-4">{details.title}</h1>
           {details.image && (
             <img
               src={details.image}
@@ -45,16 +45,37 @@ export default function ProductDetails() {
          </div>
           
           <p className="mb-2">{details.description}</p>
-          <p className="text-lg font-semibold text-pink-600 mb-2">Price: ${details.price}</p>
+          <p className="text-lg font-semibold text-teal-600 mb-2">Price: ${details.price}</p>
+          <p className="text-lg font-semibold text-yellow-400 mb-2">{details.rating.rate} <i class="fa-solid text-yellow-400 fa-star"></i></p>
+          {console.log(details)}
+
           <p className="text-gray-600 italic">Category: {details.category}</p>
-      
+      <div className='flex flex-row justify-center items-center'>
           <button 
-            className='bg-yellow-400 w-38 my-2  mx-auto text-gray-800 py-4 px-4 rounded-lg shadow-md hover:shadow-lg focus:bg-teal-600 transition-all duration-300' 
+            className='bg-blue-600 w-32 my-2 flex mx-auto text-white py-4 px-4 rounded-lg shadow-md hover:shadow-lg focus:bg-yellow-500 transition-all duration-300' 
             onClick={() => addToCart(details)}
           >
             Add to Cart
           </button>
-        </div>
+          <div className=' flex justfiy-center items-center font-bold p-2 border rounded-md shadow-lg bg-gray-100  text-center'>
+      
+      <button
+        onClick={() => Increment(details)}
+      >
+          <i className="text-center fa-solid text-black fa-plus"></i>
+      </button>
+      <div className="text-sm font-bold p-2 ">
+        {count}
+      </div>
+      <button
+        onClick={() => Dicrement (details)}
+        className="  "
+      >
+        <i className=" fa-solid fa-minus"></i>
+        </button>
+      </div>
+      </div>
+    </div>
       </div>
       <Footer/>  
     </div>

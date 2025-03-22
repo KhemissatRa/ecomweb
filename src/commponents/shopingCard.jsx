@@ -3,8 +3,8 @@ import { MyContext } from './context';
 import { Link } from 'react-router-dom';
 
 export default function ShoppingCart() {
-  const { cart, addToCart, removeFromCart, } = useContext(MyContext);
-
+  const { cart,Increment,setCart,Dicrement,count } = useContext(MyContext);
+ 
   const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (
@@ -22,20 +22,20 @@ export default function ShoppingCart() {
                     <h2 className="text-xl font-semibold text-gray-800">{item.title}</h2>
                     <p className="text-gray-600">ID: {item.id}</p>
                     <p className="text-lg text-gray-800">{item.price}$</p>
-                    <p className="text-gray-500">Quantity: {item.quantity}</p>
+                    <p className="text-gray-500">Quantity: {item.quantity=count}</p>
                   </div>
 
                   <div className="flex items-center space-x-2">
                     <button
                       className="bg-teal-500 text-white py-2 px-4 rounded hover:bg-teal-700 transition duration-200"
-                      onClick={() => addToCart(item)}
+                      onClick={() => Increment(item)}
                       aria-label={`Add more of ${item.title}`}
                     >
                       Add
                     </button>
 
                     <button 
-                      onClick={() => removeFromCart(item)} 
+                      onClick={() => Dicrement(item)} 
                       className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-200"
                       aria-label={`Remove ${item.title} from cart`}
                     >
@@ -59,7 +59,16 @@ export default function ShoppingCart() {
           >
             Proceed to Checkout
           </button >
+      
+          
         </Link>
+        <button
+            className="mt-4 w-full bg-red-600 text-white py-2 rounded hover:bg-blue-600 transition duration-200"
+            aria-label="Proceed to checkout"
+            onClick={() => setCart([])}   
+          >
+            Clear cart
+          </button >
       </div>
     </div>
   )}

@@ -9,6 +9,7 @@ const MyProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [find,setFind]=useState("")
+  const [count, setCount] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,10 +58,18 @@ const MyProvider = ({ children }) => {
         );
       }
     };
-    
-    
+    const Increment =(e)=>{
+      setCount(count+1)
+      addToCart(e)
+    }
+    const Dicrement =(e)=>{
+      setCount((prevCount) => (prevCount > 1 ? prevCount - 1 : 1));
+
+      removeFromCart(e)
+    }   
+ 
   return (
-    <MyContext.Provider value={{ find,setFind,cart, addToCart, removeFromCart, products, error, loading,setProducts }}>
+    <MyContext.Provider value={{ find,setFind,cart, Increment,Dicrement, addToCart, removeFromCart, products, error, loading,count,setCount,setProducts,setCart }}>
       {children}
     </MyContext.Provider>
   );
