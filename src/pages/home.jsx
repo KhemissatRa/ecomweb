@@ -17,12 +17,7 @@ const featuredProducts = [
         description: 'This is a great product.',
         price: '29.99'
     },
-    {
-        image: image2,
-        title: 'Cooming Soon',
-        description: 'Another amazing product.',
-        price: '49.99'
-    },
+ 
     
 ];
   return (

@@ -62,7 +62,7 @@ export default function ProductList() {
                 </select>
             </div>
 
-            <section className='flex justify-center mx-auto items-center grid   md:grid-cols-4 max-w-full   '>
+            <section className='flex border-t-gray-600 border justify-center mx-auto items-center grid   md:grid-cols-4 max-w-full   '>
                 {filteredProducts.map(item => (
 
                     <div
@@ -78,7 +78,7 @@ export default function ProductList() {
                             <h2 className='text-sm text-center font-semibold text-gray-800 mb-2 hover:text-blue-800 transition-colors duration-200'>{item.title}</h2>
                         
                             <div className='flex flex-col  items-center justify-between'>
-                                <span className='text-lg  text-blue-800 font-bold text-teal-600'>{item.price}$</span>
+                                <span className='text-lg  text-blue-800 font-bold text-teal-600'> {item.price}$</span>
                             </div>
                         </div>
                         <Link to={`/Details/${item.id}`} className='  bg-gray-800 text-center w-28 text-white p p-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-300'>

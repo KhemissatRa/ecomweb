@@ -4,20 +4,24 @@ import { useParams } from 'react-router-dom';
 import Footer from './footer';
 import Nav from '../commponents/navbar';
 import Hero from './hero';
-
+import { Link } from 'react-router-dom';
 export default function ProductDetails() {
 
   const { products, addToCart,Increment,Dicrement,count } = useContext(MyContext);
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [details, setDetails] = useState(null);
-
-  useEffect(() => {
+useEffect(() => {
     const productDetails = products.find(item => item.id === Number(id));
     setDetails(productDetails);
     setLoading(false);
-  }, [id, products]);
-
+}, [id, products]);
+const filtered = details 
+  ? products.filter(
+      (product) => product.category === details.category && product.id !== details.id
+    ) 
+  : [];  
+  {console.log(details)}
   if (loading) {
     return <div className="text-center text-lg text-pink-600">Loading...</div>;
   }
@@ -45,7 +49,7 @@ export default function ProductDetails() {
          </div>
           
           <p className="mb-2">{details.description}</p>
-          <p className="text-lg font-semibold text-teal-600 mb-2">Price: ${details.price}</p>
+          <p className="text-lg font-semibold text-teal-600 mb-2"><span className= 'text-gray-400 line-through text-md text-center '>${Number(details.price + 100)} </span> <br/> ${details.price}</p>
           <p className="text-lg font-semibold text-yellow-400 mb-2">{details.rating.rate} <i class="fa-solid text-yellow-400 fa-star"></i></p>
           {console.log(details)}
 
@@ -77,6 +81,39 @@ export default function ProductDetails() {
       </div>
     </div>
       </div>
+      <div className="mt-10">
+  <h2 className="text-2xl font-bold text-gray-900 text-center mb-6">Related Products</h2>
+  
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 flex gap-6 items-center justify-center">
+    {filtered.map((item) => (
+      <div
+        key={item.id}
+        className="relative bg-white border rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 p-4 flex flex-col items-center"
+      >
+        <img
+          className="w-48 h-48 object-cover rounded-lg transition-transform duration-300 transform hover:scale-105"
+          src={item.image}
+          alt={item.title}
+        />
+
+        <div className="text-center mt-3">
+          <h2 className="text-lg font-semibold text-blue-600 transition-colors duration-200">
+            {item.title}
+          </h2>
+          <span className="text-lg font-bold text-teal-600 mt-2 block">${item.price}</span>
+        </div>
+
+        <Link
+          to={`/Details/${item.id}`}
+          className="mt-4 bg-gray-800 text-white text-sm font-medium py-2 px-5 rounded-lg shadow-md hover:bg-gray-900 hover:shadow-lg transition-all duration-300"
+        >
+          Buy Now!
+        </Link>
+      </div>
+    ))}
+  </div>
+</div>
+
       <Footer/>  
     </div>
   );
