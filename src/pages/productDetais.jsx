@@ -12,13 +12,13 @@ export default function ProductDetails() {
   const [loading, setLoading] = useState(true);
   const [details, setDetails] = useState(null);
 useEffect(() => {
-    const productDetails = products.find(item => item.id === Number(id));
+    const productDetails = products.find((item )=> item._id === id);
     setDetails(productDetails);
     setLoading(false);
 }, [id, products]);
 const filtered = details 
   ? products.filter(
-      (product) => product.category === details.category && product.id !== details.id
+      (product) => product.category === details.category && product._id !== details._id
     ) 
   : [];  
   {console.log(details)}
@@ -39,9 +39,9 @@ const filtered = details
         <div className="w-full flex flex-col justify-center items-center md:w-1/2  p-6 bg-white rounded-lg shadow-md">
           <div>
           <h1 className="text-3xl font-bold text-center  text-[#1F2937] mb-4">{details.title}</h1>
-          {details.image && (
+          {details.Image && (
             <img
-              src={details.image}
+              src={details.Image}
               alt={details.title}
               className="  h-auto rounded-xl mb-4"
             />
@@ -50,7 +50,6 @@ const filtered = details
           
           <p className="mb-2">{details.description}</p>
           <p className="text-lg font-semibold text-teal-600 mb-2"><span className= 'text-gray-400 line-through text-md text-center '>${Number(details.price + 100)} </span> <br/> ${details.price}</p>
-          <p className="text-lg font-semibold text-yellow-400 mb-2">{details.rating.rate} <i class="fa-solid text-yellow-400 fa-star"></i></p>
           {console.log(details)}
 
           <p className="text-gray-600 italic">Category: {details.category}</p>
@@ -84,15 +83,15 @@ const filtered = details
       <div className="mt-10">
   <h2 className="text-2xl font-bold text-gray-900 text-center mb-6">Related Products</h2>
   
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 flex gap-6 items-center justify-center">
+  <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 flex gap-6 items-center justify-center  bg-gradient-to-br from-white to-slate-100      ">
     {filtered.map((item) => (
       <div
         key={item.id}
-       className='flex border-t-gray-600 p-4 border justify-center mx-auto items-center flex-col w-full'
+       className='flex border-t-gray-900 border-rounded  p-4 border justify-center mx-auto items-center flex-col w-full'
       >
         <img
           className="w-48 h-48 object-cover rounded-lg "
-          src={item.image}
+          src={item.Image}
           alt={item.title}
         />
 

@@ -24,17 +24,17 @@ export default function ProductList() {
 
 
     
-    const categories = ['All', ...new Set(products.map(product => product.category))];
+    const categories = ['All', ...new Set(products.map(product => product.Category))];
     const filteredProducts = selectedCategory === 'All'
         ? products
-        : products.filter(product => product.category === selectedCategory);
+        : products.filter(product => product.Category === selectedCategory);
 
     console.log(products)
     if (loading) return <div className="text-center py-10 text-gray-700">Loading...</div>;
     if (error) return <div className="text-center py-10 text-red-600">{error}</div>;
     return (
-        <div className="container mx-auto px-4 py-10">
-            <div className='flex justify-center mb-8'>
+        <div className="container bg-gradient-to-br from-white to-slate-100 mx-auto px-4 py-10">
+            <div className='flex border  justify-center mb-8'>
                 {categories.map((category, index) => (
                     <button
                         key={index}
@@ -51,10 +51,11 @@ export default function ProductList() {
 
                 <select className='md:hidden p-2 rounded bg-gray-800 text-white shadow-md focus:outline-none cursor-pointer' onChange={(e)=> setSelectedCategory(e.target.value)} >
                     <option value="All">All</option>
-                    <option value="men's clothing">mens clothing</option>
-                    <option value="jewelery">Jewelery</option>
-                    <option value="women's clothing">Women'sclothing</option>
-                    <option value="electronics">electronics</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Home">Home</option>
+                    <option value="Accessorier">Accessorier</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Other">Other</option>
 
 
 
@@ -62,16 +63,16 @@ export default function ProductList() {
                 </select>
             </div>
 
-            <section className='flex border-t-gray-600 border justify-center mx-auto items-center grid   md:grid-cols-4 max-w-full   '>
-                {filteredProducts.map(item => (
+            <section className='flex border-t-gray-600 border  justify-center mx-auto items-center grid grid-cols-2  md:grid-cols-4 max-w-full   '>
+                {filteredProducts.map(item  => (
 
                     <div
                         key={item.id}
-                        className='relative my-4 max-w-[300px] bg-white border flex justify-center flex-col  rounded-3xl m-2 items-center p-2'
+                        className='relative my-4 max-w-[300px] bg-white border border-gray-900 flex justify-center flex-col   rounded-3xl m-2 items-center p-2'
                     >
                         <img
-                            className='w-48 mx-auto h-48  object-cover transition-transform duration-300 transform hover:scale-110'
-                            src={item.image}
+                            className='w-48 mx-auto h-48 rounded-xl object-cover transition-transform duration-300 transform hover:scale-110'
+                            src={item.Image}
                             alt={item.title}
                         />
                         <div className='p-2 flex flex-col '>
@@ -81,7 +82,7 @@ export default function ProductList() {
                                 <span className='text-lg  text-blue-800 font-bold text-teal-600'> {item.price}$</span>
                             </div>
                         </div>
-                        <Link to={`/Details/${item.id}`} className='  bg-gray-800 text-center w-28 text-white p p-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-300'>
+                        <Link to={`/Details/${item._id}`} className='  bg-gray-800 text-center w-28 text-white p p-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-300'>
                             Buy Now!
                         </Link>
                     </div>

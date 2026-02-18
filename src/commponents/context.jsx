@@ -14,8 +14,8 @@ const MyProvider = ({ children }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const responseOne = await axios.get('https://fakestoreapi.com/products');
-
+        const responseOne = await axios.get('https://backendoctoweb.onrender.com/product/');
+{console.log(responseOne)}
         setProducts(responseOne.data);
   
         setLoading(false);

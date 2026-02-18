@@ -19,9 +19,12 @@ export default function Nav() {
     <nav className='bg-gray-800 text-white w-full shadow-lg'>
       <div className='container mx-auto flex justify-between items-center p-4'>
         <div className="flex justify-between items-center space-x-8">
-          <h1 className='text-3xl font-extrabold tracking-wide'>Shop<span className='text-yellow-400'>Now</span></h1>
+          <h1 className='text-3xl font-extrabold tracking-wide'>Dz<span className='text-yellow-400'>Shope</span></h1>
           <Link to="/" className='hover:text-teal-300 transition duration-300 text-lg font-semibold'>Home</Link>
+          <Link to="/About" className='hover:text-teal-300 transition duration-300 text-lg font-semibold'>About</Link>
+
           <Link to="/card" className='hover:text-teal-300 transition duration-300 text-lg font-semibold'>
+
             <FontAwesomeIcon icon={faShoppingCart} className="mr-2 text-teal-600" />
           </Link>
         </div>
