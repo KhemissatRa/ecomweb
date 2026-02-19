@@ -67,9 +67,10 @@ const MyProvider = ({ children }) => {
 
       removeFromCart(e)
     }   
- 
+  const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
   return (
-    <MyContext.Provider value={{ find,setFind,cart, Increment,Dicrement, addToCart, removeFromCart, products, error, loading,count,setCount,setProducts,setCart }}>
+    <MyContext.Provider value={{totalPrice, find,setFind,cart, Increment,Dicrement, addToCart, removeFromCart, products, error, loading,count,setCount,setProducts,setCart }}>
       {children}
     </MyContext.Provider>
   );

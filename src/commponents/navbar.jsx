@@ -5,6 +5,7 @@ import { faSearchengin } from '@fortawesome/free-brands-svg-icons';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { MyContext } from './context';
 
+
 export default function Nav() {
   const { products,find, setFind, setProducts } = useContext(MyContext);
 
@@ -18,7 +19,7 @@ export default function Nav() {
   return (
     <nav className='bg-gray-800 text-white w-full shadow-lg'>
       <div className='container mx-auto flex justify-between items-center p-4'>
-        <div className="flex justify-between items-center space-x-8">
+        <div className="flex justify-between items-center space-x-4">
           <h1 className='text-3xl font-extrabold tracking-wide'>Dz<span className='text-yellow-400'>Shope</span></h1>
           <Link to="/" className='hover:text-teal-300 transition duration-300 text-lg font-semibold'>Home</Link>
           <Link to="/About" className='hover:text-teal-300 transition duration-300 text-lg font-semibold'>About</Link>
@@ -27,6 +28,10 @@ export default function Nav() {
 
             <FontAwesomeIcon icon={faShoppingCart} className="mr-2 text-teal-600" />
           </Link>
+<a href='https://admin-dashboard-octoweb.vercel.app/orders'>  <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+    <path d="M12 2a5 5 0 110 10 5 5 0 010-10zm0 12c4.418 0 8 2.239 8 5v3H4v-3c0-2.761 3.582-5 8-5z"/>
+  </svg>
+</a>
         </div>
 
         <form className='relative hidden md:flex' onSubmit={(e) => { e.preventDefault(); handleSearch(); }}>

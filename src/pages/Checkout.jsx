@@ -1,12 +1,10 @@
 import React, { useState, useContext } from 'react'
-import { CartContext } from '../context/cartContext'
 import axios from 'axios'
-import Category from '../compenents/Category'
-import Timeline from '../compenents/Timeline'
-import Fouter from '../compenents/Fouter'
+import { MyContext } from '../commponents/context'
+import Navbar from '../commponents/navbar'
 
 export default function Checkout() {
-  const { totalPrice, cart } = useContext(CartContext)
+  const { totalPrice, cart } = useContext(MyContext)
 
   const [order, setOrder] = useState({
     name: "",
@@ -140,7 +138,7 @@ export default function Checkout() {
 
   return (
     <>
-      <Category />
+    <Navbar/>
 
       <div className="w-full flex bg-gradient-to-br from-slate-50 to-slate-100 justify-center min-h-screen items-center py-12 px-4">
         <form
@@ -253,7 +251,6 @@ export default function Checkout() {
         </form>
       </div>
 
-      <Timeline />
 
       {/* Custom Modal */}
       {showModal && (
@@ -299,6 +296,7 @@ export default function Checkout() {
             >
               حسناً
             </button>
+            {console.log(order)}
           </div>
         </div>
       )}

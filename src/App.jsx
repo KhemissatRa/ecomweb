@@ -1,7 +1,7 @@
 import Home from './pages/home'
 import ProductDetails from './pages/productDetais'
 import ShopingCard from './commponents/shopingCard' 
-import Checkout from './commponents/checkout'
+import Checkout from './pages/Checkout'
 import { BrowserRouter as Router , Route,Routes } from 'react-router-dom'
 import About from './pages/About'
 export default function App() {
