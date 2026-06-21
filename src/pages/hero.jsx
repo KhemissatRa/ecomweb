@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Hero() {
   return (
-    <div  className='max-w-full min-h-full  bg-gray-900 text-white flex items-center justify-center   px-4 '>
+    <div  className='max-w-full min-h-full  bg-gray-900 text-white flex items-center justify-center   p-4 '>
       <div className='flex flex-col md:flex-row items-center justify-between w-full max-w-full'>
         <img src="/NIKE.jpg" alt="" />
       </div>
