@@ -14,10 +14,9 @@ const MyProvider = ({ children }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const responseOne = await axios.get('https://backendoctoweb-1.onrender.com/poduct');
-{console.log(responseOne)}
-        setProducts(responseOne.data);
-  
+              const res = await axios.get("https://backendoctoweb-1.onrender.com/product/")
+        setProducts(res.data);
+
         setLoading(false);
       } catch (err) {
         setError(err.message || 'An error occurred while fetching products.');
