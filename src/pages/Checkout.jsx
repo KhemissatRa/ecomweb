@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react'
 import axios from 'axios'
 import { MyContext } from '../commponents/context'
-import Navbar from '../commponents/navbar'
 
 export default function Checkout() {
   const { totalPrice, cart } = useContext(MyContext)

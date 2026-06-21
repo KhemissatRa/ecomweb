@@ -1,6 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
-import Navbar from '../commponents/navbar'
-import Footer from './footer'; 
+import  { useEffect, useRef, useState } from 'react'
 
 const stats = [
   { value: '50K+', label: 'Clients Satisfaits', icon: '👥' },

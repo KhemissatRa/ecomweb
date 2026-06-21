@@ -1,10 +1,7 @@
 import React from 'react'
 import ProductList from '../commponents/productList'
-import Navbar from '../commponents/navbar'
 import Hero from './hero'
-import Footer from './footer'; 
 import NewSales from '../commponents/NewSales'; 
-import About from './About'
 export default function Home() {
 
 
