@@ -14,7 +14,7 @@ const MyProvider = ({ children }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const responseOne = await axios.get('https://backendoctoweb-1.onrender.com/poduct/');
+        const responseOne = await axios.get('https://backendoctoweb-1.onrender.com/poduct');
 {console.log(responseOne)}
         setProducts(responseOne.data);
   
