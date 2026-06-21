@@ -28,7 +28,7 @@ export default function Nav() {
 
             <FontAwesomeIcon icon={faShoppingCart} className="mr-2 text-teal-600" />
           </Link>
-<a href='https://admin-dashboard-octoweb.vercel.app/orders'>  <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+<a href='https://admin-panel-orpin-iota-43.vercel.app/'>  <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
     <path d="M12 2a5 5 0 110 10 5 5 0 010-10zm0 12c4.418 0 8 2.239 8 5v3H4v-3c0-2.761 3.582-5 8-5z"/>
   </svg>
 </a>
