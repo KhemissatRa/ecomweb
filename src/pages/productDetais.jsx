@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { MyContext } from '../commponents/context';
 import { useParams } from 'react-router-dom';
-import Footer from './footer';
-import Nav from '../commponents/navbar';
 import Hero from './hero';
 import { Link } from 'react-router-dom';
 export default function ProductDetails() {
@@ -32,28 +30,25 @@ const filtered = details
 
   return (
     <div>
-      <Nav/>
       <Hero/>
 
-      <div className="min-h-screen flex p-4 flex-col w-screen items-center justify-center bg-[#F5F5F5]">
-        <div className="w-full flex flex-col justify-center items-center md:w-1/2  p-6 bg-white rounded-lg shadow-md">
-          <div>
-          <h1 className="text-3xl font-bold text-center  text-[#1F2937] mb-4">{details.title}</h1>
+        <div className="¨max-w-full flex flex-row space-x-2 justify-center items-center md:w-3/2  p-6 bg-white rounded-lg shadow-md">
+          <div className='border-slate-600  rounded-2xl p-4 border-2'>
+          <h1 className="text-3xl  font-bold text-center   text-yellow-700 mb-4">{details.title}</h1>
           {details.Image && (
             <img
               src={details.Image}
               alt={details.title}
-              className="  h-auto rounded-xl mb-4"
+              className="  md:size-80  rounded-xl mb-4"
             />
           )}
          </div>
-          
-          <p className="mb-2">{details.description}</p>
-          <p className="text-lg font-semibold text-teal-600 mb-2"><span className= 'text-gray-400 line-through text-md text-center '>${Number(details.price + 100)} </span> <br/> ${details.price}</p>
-          {console.log(details)}
+          <div>      <div className='flex flex-col justify-center items-center'>
+                   <p className="mb-2">{details.description}</p>
+          <p className="text-lg font-semibold text-teal-600 mb-2"><span className= 'text-gray-400 line-through text-md text-center '>{Number(details.price + 100)}<span className='text-xs'>DZD</span> </span> <br/>{details.price}<span className='text-xs'>DZD</span></p>
 
-          <p className="text-gray-600 italic">Category: {details.category}</p>
-      <div className='flex flex-row justify-center items-center'>
+          <p className="text-slate-950 italic">Category: {details.category}</p>
+
           <button 
             className='bg-blue-600 w-32 my-2 flex mx-auto text-white py-4 px-4 rounded-lg shadow-md hover:shadow-lg focus:bg-yellow-500 transition-all duration-300' 
             onClick={() => addToCart(details)}
@@ -96,7 +91,7 @@ const filtered = details
         />
 
         <div className="text-center mt-3">
-          <h2 className="text-lg font-semibold text-blue-600 transition-colors duration-200">
+          <h2 className="text-lg font-semibold text-slate-950 transition-colors duration-200">
             {item.title}
           </h2>
           <span className="text-lg font-bold text-teal-600 mt-2 block">${item.price}</span>
@@ -113,7 +108,6 @@ const filtered = details
   </div>
 </div>
 
-      <Footer/>  
     </div>
   );
 }

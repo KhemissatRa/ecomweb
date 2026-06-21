@@ -24,7 +24,7 @@ export default function ProductList() {
 
 
     
-    const categories = ['All', ...new Set(products.map(product => product.Category))];
+    const categories = ['ALL', ...new Set(products.map(product => product.Category))];
     const filteredProducts = selectedCategory === 'All'
         ? products
         : products.filter(product => product.Category === selectedCategory);
@@ -33,13 +33,13 @@ export default function ProductList() {
     if (loading) return <div className="text-center py-10 text-gray-700">Loading...</div>;
     if (error) return <div className="text-center py-10 text-red-600">{error}</div>;
     return (
-        <div className="container bg-gradient-to-br from-white to-slate-100 mx-auto px-4 py-10">
-            <div className='flex border  justify-center mb-8'>
+        <div className="container  bg-gradient-to-br  from-white to-slate-100 mx-auto px-2 py-2 md:px-4 md:py-10">
+            <div className='flex border  justify-center  m-8'>
                 {categories.map((category, index) => (
                     <button
                         key={index}
                         aria-pressed={selectedCategory === category}
-                        className={`py-2 hidden md:flex px-6 mx-2 text-white rounded-lg transition-colors duration-300 focus:outline-none ${
+                        className={`py-2 flex px-2 text-xs md:text-md md:px-6 mx-2 text-white rounded-lg transition-colors duration-300 focus:outline-none ${
                             selectedCategory === category ? 'bg-gray-700' : 'bg-gray-800 hover:bg-gray-600'
                         }`}
                         onClick={() => setSelectedCategory(category)}
@@ -49,18 +49,7 @@ export default function ProductList() {
                     </button>
                 ))}
 
-                <select className='md:hidden p-2 rounded bg-gray-800 text-white shadow-md focus:outline-none cursor-pointer' onChange={(e)=> setSelectedCategory(e.target.value)} >
-                    <option value="All">All</option>
-                    <option value="Clothing">Clothing</option>
-                    <option value="Home">Home</option>
-                    <option value="Accessorier">Accessorier</option>
-                    <option value="Electronics">Electronics</option>
-                    <option value="Other">Other</option>
-
-
-
-
-                </select>
+              
             </div>
 
             <section className='flex border-t-gray-600 border  justify-center mx-auto items-center grid grid-cols-2  md:grid-cols-4 max-w-full   '>
@@ -79,7 +68,7 @@ export default function ProductList() {
                             <h2 className='text-sm text-center font-semibold text-gray-800 mb-2 hover:text-blue-800 transition-colors duration-200'>{item.title}</h2>
                         
                             <div className='flex flex-col  items-center justify-between'>
-                                <span className='text-lg  text-blue-800 font-bold text-teal-600'> {item.price}$</span>
+                                <span className='text-lg  text-blue-800 font-bold text-teal-600 relative italic'> {item.price}<span className='absolute text-xs'>DZD</span></span>
                             </div>
                         </div>
                         <Link to={`/Details/${item._id}`} className='  bg-gray-800 text-center w-28 text-white p p-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-300'>

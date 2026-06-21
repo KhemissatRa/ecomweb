@@ -138,7 +138,6 @@ export default function Checkout() {
 
   return (
     <>
-    <Navbar/>
 
       <div className="w-full flex bg-gradient-to-br from-slate-50 to-slate-100 justify-center min-h-screen items-center py-12 px-4">
         <form

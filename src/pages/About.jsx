@@ -88,7 +88,6 @@ export default function About() {
 
   return (
     <div className="max-w-full bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 min-h-screen font-sans">
-    <Navbar/>
 
       {/* ─── HERO ─── */}
       <section className="relative flex flex-col items-center justify-center text-center px-6 py-24 overflow-hidden">
@@ -228,7 +227,6 @@ export default function About() {
           </div>
         </div>
       </section>
-    <Footer/>
 
     </div>
   )

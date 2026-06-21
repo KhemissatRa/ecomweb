@@ -21,7 +21,7 @@ export default function ShoppingCart() {
                   <div>
                     <h2 className="text-xl font-semibold text-gray-800">{item.title}</h2>
                     <p className="text-gray-600">ID: {item.id}</p>
-                    <p className="text-lg text-gray-800">{item.price}$</p>
+                    <p className="text-lg text-gray-800">{item.price}<span className='text-xs absolute'>DZD</span></p>
                     <p className="text-gray-500">Quantity: {item.quantity=count}</p>
                   </div>
 
@@ -47,7 +47,7 @@ export default function ShoppingCart() {
             </ul>
             <div className="mt-6 flex justify-between font-bold text-lg">
               <span>Total:</span>
-              <span>{totalPrice}$</span>
+              <span>{totalPrice}<span className='text-xs absolute'>DZD</span></span>
             </div>
           
           </>

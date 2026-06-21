@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from 'react';
+import  { useState, useEffect, createContext } from 'react';
 import axios from 'axios';
 
 const MyContext = createContext();
@@ -14,7 +14,7 @@ const MyProvider = ({ children }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const responseOne = await axios.get('https://backendoctoweb.onrender.com/product/');
+        const responseOne = await axios.get('https://backendoctoweb-1.onrender.com/poduct/');
 {console.log(responseOne)}
         setProducts(responseOne.data);
   
@@ -47,7 +47,7 @@ const MyProvider = ({ children }) => {
       const isItemInCart = cart.find((cartItem) => cartItem.id === item.id);
     
       if (isItemInCart.quantity === 1) {
-        setCart(cartItems.filter((cartItem) => cartItem.id !== item.id)); 
+        setCart(cart.filter((cartItem) => cartItem.id !== item.id)); 
       } else {
         setCart(
           cart.map((cartItem) =>
